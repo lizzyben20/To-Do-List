@@ -1,6 +1,6 @@
 import TaskItem from "./TaskItem";
 
-function TaskList() {
+function TaskList({tasks}) {
   return (
     <div className="bg-white text-gray-800 border rounded-lg">
       {tasks.map((task) => (
@@ -8,9 +8,9 @@ function TaskList() {
           key={task.id}
           task={task.task}
         />
-      ))}
+      ))}     
     </div>
   );
 }
 
-export default TaskList;
+export default TaskList;  

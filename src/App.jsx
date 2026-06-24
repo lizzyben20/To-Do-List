@@ -7,6 +7,7 @@ import TaskList from "./components/TaskList";
 
 
 
+
 function App() {
   const [tasks, setTasks] = useState([
       {id: Date.now() + Math.random(), task: "Read for 1hr" , completed: false},
@@ -15,11 +16,22 @@ function App() {
       {id: Date.now() + Math.random(), task: "Plan vacation", completed: false},
       {id: Date.now() + Math.random(), task: "Clean garage", completed: false}
   ]);
+
+  function newTask(texts) {
+    const newTask = {
+      id: Date.now() + Math.random(),
+      task: texts,
+      completed: false
+    };
+    setTasks((prevTasks) => [newTask, ...prevTasks]);
+    
+  }
+  console.log(tasks)
   return (
     <div className="min-h-screen bg-gray-50 flex justify-center">
       <div className="w-full max-w-xl pt-10">
         <Header />
-        <TaskInput />
+        <TaskInput onAddTask={newTask} />
         <FilterButton />
         <TaskList tasks={tasks} />
         {/* <TaskInput onAddTask={addTask} />
