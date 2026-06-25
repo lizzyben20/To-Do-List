@@ -3,10 +3,10 @@ import TaskItem from "./TaskItem";
 function TaskList({tasks}) {
   return (
     <div className="bg-white text-gray-800 border rounded-lg">
-      {tasks.map((task) => (
+      {tasks.map((tasking) => (
         <TaskItem
-          key={task.id}
-          task={task.task}
+          key={tasking.id}
+          task={tasking.task}
         />
       ))}     
     </div>
