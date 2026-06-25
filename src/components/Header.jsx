@@ -1,12 +1,16 @@
-function Header() {
+   function Header() {
   return (
     <div className="mb-6">
       <h1 className="text-4xl font-bold text-purple-600">
-        My Tasks
+         My Tasks
       </h1>
 
       <p className="text-gray-500">
         Stay organized, stay productive
+      </p>
+
+      <p className="text-sm text-gray-400 mt-1">
+        5 Tasks Remaining
       </p>
     </div>
   );
