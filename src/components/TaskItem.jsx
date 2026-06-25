@@ -1,4 +1,7 @@
+import { useState } from "react";
 function TaskItem({ task }) {
+  const [active, setActive] = useState(false);
+  
   return (
     <div className="group flex items-center justify-between p-3 border-b hover:bg-purple-50 transition-all duration-200">
       <div className="flex items-center gap-3">
@@ -16,6 +19,16 @@ function TaskItem({ task }) {
 
       <button className="opacity-0 group-hover:opacity-100 text-red-400 hover:text-red-600 hover:scale-110 transition-all duration-200">
       </button>
+    <div className="flex items-center gap-3 border-b p-3">
+
+
+      <span onClick={() => setActive(!active)}
+        className={` ${active ? "line-through text-gray-500" : "text-gray-800"} flex items-center gap-2 cursor-pointer`}
+        >
+                <input type="checkbox"
+       /> 
+        {task}
+      </span>
     </div>
   );
 }
