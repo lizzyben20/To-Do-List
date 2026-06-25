@@ -1,4 +1,4 @@
-import CategorySelect from "../CategorySelect"
+import CategorySelect from "./CategorySelect"
 
 function TaskInput() {
 import { useState } from "react";
