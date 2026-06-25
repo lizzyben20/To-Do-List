@@ -1,33 +1,19 @@
 import { useState } from "react";
+
 function TaskItem({ task }) {
-  const [active, setActive] = useState(false);
-  
+  const [active, setActive] = useState(task.completed);
+
   return (
-    <div className="group flex items-center justify-between p-3 border-b hover:bg-purple-50 transition-all duration-200">
-      <div className="flex items-center gap-3">
-        <input
-          type="checkbox"
-          className="w-4 h-4 accent-purple-600"
-        />
-
-        <span>{task.text}</span>
-
-        <span className="text-xs px-2 py-1 rounded-full bg-purple-100 text-purple-600">
-          {task.category}
-        </span>
-      </div>
-
-      <button className="opacity-0 group-hover:opacity-100 text-red-400 hover:text-red-600 hover:scale-110 transition-all duration-200">
-      </button>
     <div className="flex items-center gap-3 border-b p-3">
+      <span
+        onClick={() => setActive(!active)}
+        className={`${
+          active ? "line-through text-gray-500" : "text-gray-800"
+        } flex items-center gap-2 cursor-pointer`}
+      >
+        <input type="checkbox" checked={active} readOnly />
 
-
-      <span onClick={() => setActive(!active)}
-        className={` ${active ? "line-through text-gray-500" : "text-gray-800"} flex items-center gap-2 cursor-pointer`}
-        >
-                <input type="checkbox"
-       /> 
-        {task}
+        {task.task}
       </span>
     </div>
   );

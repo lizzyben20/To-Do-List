@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-=======
-import CategorySelect from "./CategorySelect"
-
-function TaskInput() {
->>>>>>> da8887ceb7e9e7c428cf5226c8c9bf95a4587a04
 import { useState } from "react";
-import CategorySelect from "../CategorySelect";
+import CategorySelect from "./CategorySelect";
 
 function TaskInput({ onAddTask }) {
   const [task, setTask] = useState("");
