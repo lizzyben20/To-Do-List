@@ -6,6 +6,7 @@ import TaskList from "./components/TaskList";
 
 function App() {
   const [filter, setFilter] = useState("all");
+  
 
   const [tasks, setTasks] = useState([
     { id: Date.now() + Math.random(), task: "Read for 1hr", completed: false },
@@ -25,10 +26,23 @@ function App() {
     setTasks((prevTasks) => [task, ...prevTasks]);
   }
 
+  let filteredTasks = tasks;
+  if (filter === "active") {
+    filteredTasks = tasks.filter((task) => !task.completed);
+  } else if (filter === "completed") {
+    filteredTasks = tasks.filter((task) => task.completed);
+  }
+
+  function toggleTask(id) {
+  setTasks(tasks.map((task) => 
+    task.id === id ? {...task, completed: !task.completed} : task
+  ))
+}
+
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center p-6">
       <div className="w-full max-w-2xl bg-white rounded-xl shadow-lg p-6">
-        <Header />
+        <Header tasks={tasks}/>
 
         <TaskInput onAddTask={newTask} />
 
@@ -37,7 +51,7 @@ function App() {
           setFilter={setFilter}
         />
 
-        <TaskList tasks={tasks} />
+        <TaskList tasks={filteredTasks} onToggleTask={toggleTask} />
       </div>
     </div>
   );
